@@ -5,7 +5,7 @@ const estado = reactive({
   filtro: 'soma',
   valor1: 0,
   valor2: 0,
-  resposta: 0,
+  resposta: 0
 });
 
 
@@ -21,7 +21,11 @@ const getFiltro = () => {
     estado.resposta = valor1 - valor2;
         break
       case 'divisao':
-      estado.resposta = valor1 / valor2;
+        if(valor2 == 0) {
+          estado.resposta = "Impossível dividir por zero"
+        } else {
+          estado.resposta = valor1 / valor2;          
+      }
         break
         case 'multiplicacao':
         estado.resposta = valor1 * valor2;
